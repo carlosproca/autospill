@@ -1,0 +1,22 @@
+citHeader("To cite autospill in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = paste( "AutoSpill: A method for calculating spillover", 
+      "coefficients to compensate or unmix high-parameter flow cytometry", 
+      "data" ), 
+  author   = paste( "Carlos P. Roca, Oliver T. Burton, Teresa Prezzemolo,", 
+      "Carly E. Whyte, Richard Halpert, Lukasz Kreft, James Collier,", 
+      "Alexander Botzki, Josef Spidlen, Stephanie Humblet-Baron, and Adrian", 
+      "Liston" ),
+  journal  = "bioRxiv",
+  year     = "2020",
+  number   = "2020.06.29.177196",
+  url      = "https://doi.org/10.1101/2020.06.29.177196",
+  textVersion = paste( "Roca et al:", 
+      "AutoSpill: A method for calculating spillover coefficients to", 
+      "compensate or unmix high-parameter flow cytometry data.", 
+      "bioRxiv 2020.06.29.177196;", 
+      "https://doi.org/10.1101/2020.06.29.177196 (2020)"
+  )
+)
