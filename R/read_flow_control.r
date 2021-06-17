@@ -101,8 +101,27 @@ read.flow.control <- function( control.dir, control.def.file, asp )
 
     flow.scatter.and.marker <- c( flow.scatter.parameter, flow.marker )
 
-    check.critical( flow.scatter.and.marker %in% flow.set.marker,
-        "wrong dye name, not found in fcs data" )
+    flow.scatter.and.marker.matched.bool <-
+        flow.scatter.and.marker %in% flow.set.marker
+
+    if ( ! all( flow.scatter.and.marker.matched.bool ) )
+    {
+        marker.matched <-
+            flow.scatter.and.marker[ flow.scatter.and.marker.matched.bool ]
+        flow.scatter.and.marker.unmatched <- paste0(
+            sort( setdiff( flow.scatter.and.marker, marker.matched ) ),
+            collapse = ", "
+        )
+        flow.set.unmatched <- paste0(
+            sort( setdiff( flow.set.marker, marker.matched ) ),
+            collapse = ", "
+        )
+        error.msg <- sprintf(
+            "wrong dye name, not found in fcs data\n\texpected: %s\n\tfound: %s",
+            flow.scatter.and.marker.unmatched, flow.set.unmatched
+        )
+        check.critical( FALSE, error.msg )
+    }
 
     # use corrected names for scatter parameters and markers
 
